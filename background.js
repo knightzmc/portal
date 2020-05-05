@@ -1,6 +1,6 @@
 let currentColor = randomColor({
     format: 'rgbArray'
-});;
+});
 let nextColor;
 
 function resetColors() {
@@ -19,7 +19,7 @@ function startChanging() {
     const runTimer = () => {
         let backgroundColor = makeGradientColor(currentColor, nextColor, currentPercent++)
 
-        if (currentPercent == 100) {
+        if (currentPercent === 100) {
             currentPercent = 0;
             resetColors();
         }
@@ -37,7 +37,7 @@ function makeGradientColor(color1, color2, percent) {
     color1 = { r: color1[0], g: color1[1], b: color1[2] }
     color2 = { r: color2[0], g: color2[1], b: color2[2] }
 
-    var newColor = {};
+    const newColor = {};
 
     function makeChannel(a, b) {
         return (a + Math.round((b - a) * (percent / 100)));
@@ -46,7 +46,7 @@ function makeGradientColor(color1, color2, percent) {
     function makeColorPiece(num) {
         num = Math.min(num, 255); // not more than 255
         num = Math.max(num, 0); // not less than 0
-        var str = num.toString(16);
+        let str = num.toString(16);
         if (str.length < 2) {
             str = "0" + str;
         }
